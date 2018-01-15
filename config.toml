@@ -1,0 +1,190 @@
+# Main config file for icon theme.
+theme = "hugo-icon"
+baseURL = "http://35.194.229.104/"
+languageCode = "en-AU"
+title = "工科创II-B第十四组"
+
+# Metadata
+[params]
+  author = "Your name"
+  description = "Cool description"
+
+# Hero section (from here on is for icon theme)
+[params.hero]
+  img = "images/hero_bg.jpg"
+  title = "工科创II-B第十四组"
+  description = "小车走黑线"
+
+# Navigation section
+[params.nav]
+  mission = "项目介绍"
+  services = "软件部分"
+  team = "硬件部分"
+  contact = "附录"
+  # Include logo instead if HOME:
+  # logo = "path/to/logo"
+
+# Mission section
+[params.mission]
+  enable = true
+
+  [params.mission.images]
+    enable = true
+
+    [[params.mission.images.list]]
+      img = "images/photo.jpg"
+    [[params.mission.images.list]]
+      img = "images/hero_bg_orange.jpg"
+    [[params.mission.images.list]]
+      img = "images/hero_bg_blue.jpg"
+    [[params.mission.images.list]]
+      img = "images/working.jpg"
+
+  [[params.mission.item]]
+    weight = 1
+    name = "intro"
+    title = "项目介绍"
+    subtitle = "项目整体介绍"
+    description = "<ul><li>本次课程项目的要求是利用计算机自动发布指令控制小车走黑线。</li><li>我们使用的软件操作平台为Xcode和opencv，用于分析地图并得出抽象路线、实时监控小车位置、根据小车位置发送指令。</li><li>硬件部分为蓝牙、MSP430单片机与老师提供的小车，用于接收指令并按照指令前行。</li></ul>"
+
+  [[params.mission.item]]
+    weight = 2
+    name = "struct"
+    title = "结构说明"
+    subtitle = "整体结构说明"
+    description = "<ul><li>用计算机自带摄像头拍摄地图，分析并得出路径与拐点</li><li>计算机通过摄像头监控小车位置，得出小车前往下一个拐点的方向，并发送指令</li><li>小车通过蓝牙接收指令，由单片机转化为对小车的控制，让小车运行</li></ul>"
+
+  [[params.mission.item]]
+    weight = 3
+    name = "result"
+    title = "完成情况"
+    subtitle = "整体完成情况"
+    description = "<ul class='checked'><li>计算机可抽象出跑道，实时采集小车图像并发送指令</li><li>小车可自由前后左右运动，可通过蓝牙接收计算机指令，按黑线前进</li><li>小车整体运动流畅，速度适中，转弯灵活，并在重点的自动停止</li></ul>"
+
+# Services section
+[params.services]
+  enable = true
+  video = true
+  vidlink = "video.mp4"
+  title = "软件部分"
+  description = "运行环境：MAC OS系统 Xcode+OpenCV"
+
+  [[params.services.item]]
+    icon = "icon-feed"
+    title = "蓝牙串口通信"
+    description = "参考2015-12B02小组的蓝牙串口代码，经过针对本组小车和计算机进行的细节改动，包装成go(), stop(), turnleft(), turnright()函数，将指令传输给小车。"
+
+  [[params.services.item]]
+    icon = "icon-eye"
+    title = "图像获取"
+    description = "使用计算机内置摄像头，调用cvCreateCameraCapture()获取图像，绘制窗口的部分包装成image.h 和image.cpp"
+
+  [[params.services.item]]
+    icon = "icon-layers"
+    title = "图像处理：透视变换"
+    description = "手动选择窗口图像的四个角，主要调用了cvGetPerspectiveTransform()和cvWarpPerspective()， 对图像进行透视变换， 具体实现在perspectiveTransform.h perspectiveTransform.cpp"
+
+  [[params.services.item]]
+    icon = "icon-frame"
+    title = "图像处理：二值化"
+    description = "利用opencv内置cvThreshold()，将数值小于设定阈值的点设置成0，其余设置为255，使透视变换后的图像变为黑白两种颜色，具体实现在binarization.h binarization.cpp"
+
+  [[params.services.item]]
+    icon = "icon-target"
+    title = "图像处理：细化"
+    description = "通过迭代的方式，每次迭代将图像减少一最外层的一个像素点，并保持连通性，对二值化后的图像进行细化，再对细化结果进行判断，将距离较近的直线合并成一条直线（去掉误差产生的多余直线），具体实现在hough.h hough.cpp"
+
+  [[params.services.item]]
+    icon = "icon-cursor"
+    title = "小车追踪与控制"
+    description = "车头车尾分别用橙色和绿色两个色块，用camsift算法找到它们的位置，车头车尾的连线为小车矢量，路径转折点间的连线为路径矢量，通过这两个矢量的夹角，计算给小车下达的指令，通过tracking.h tracking.cpp 和controlling.h controlling.cpp实现"
+
+# Work section
+[params.work]
+  enable = true
+  
+  [[params.work.item]]
+    title = "透视变换"
+    #subtitle = "图像处理"
+    img = "images/透视变换.jpeg"
+
+  [[params.work.item]]
+    title = "二值化"
+    #subtitle = "图像处理"
+    img = "images/二值化.jpeg"
+
+  [[params.work.item]]
+    title = "细化处理"
+    #subtitle = "图像处理"
+    img = "images/细化处理.jpeg"
+
+  [[params.work.item]]
+    title = "确定路径"
+    img = "images/确定路径.jpeg"
+
+  [[params.work.item]]
+    title = "定位小车"
+    img = "images/定位小车.jpeg"
+
+# Team section
+[params.team]
+  enable = true
+  title = "硬件部分"
+  description = "完整代码请[点击这里](#)"
+  #TODO
+  
+  [[params.team.item]]
+    name = "小车整体设计"
+    position = ""
+    description = "小车的单片机为MSP430单片机，通过Energia软件编程。"
+    img = "images/photo.jpg"
+    
+
+  [[params.team.item]]
+    name = "Serial.begin()"
+    position = ""
+    description = "打开串口，设置数据传输速率"
+    img = ""
+
+  [[params.team.item]]
+    name = "Serial.available()"
+    position = ""
+    description = "判断是否是否接收到消息"
+    img = ""
+
+  [[params.team.item]]
+    name = "Serial.read()"
+    position = ""
+    description = "从串口接收信息并返回"
+    img = ""
+    
+  [[params.team.item]]
+    name = "forward(), turnleft(), turnright(), _stop()"
+    position = ""
+    description = "向引脚输出信号，分别控制小车前进、左转、右转、停止"
+    img = ""
+    
+  # [[params.team.item]]
+  #   name = "Jason Doe"
+  #   position = "Chief haranguer"
+  #   description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet nam itaque ipsam iste provident quo ipsam iste provident."
+  #   img = "images/person3.jpg"
+  #   facebook = "#"
+  #   twitter = "#"
+  #   dribbble = "#"
+  #   instagram = "#"
+  #   github = "#"
+
+# Contact section
+[params.contact]
+  enable = true
+  title = "附录"
+  message = "<p><a href=\"downloads/sketch_nov25a.ino\">硬件部分代码</a></p><p><a href=\"downloads/PC端代码.zip\">软件部分代码</a></p><p>参考资料</p>"
+
+# Footer section
+# Note here that the copyright and attribution statement must remain as part of the license agreement. If you wish to remove this, please contact freehtml5 and pay for a professional license.
+[params.footer]
+  enable = true
+  note = "<p><small>&copy; 2016 Free HTML5 Template. All Rights Reserved. <br> Designed by <a href='http://freehtml5.co/' target='_blank'>FreeHTML5.co</a> Demo Images: <a href='http://pexels.com/' target='_blank'>Pexels</a><br>Hugo port by <a href='https://github.com/SteveLane/' target='_blank'>SteveLane</a></small></p>"
+  github = "#"
+  
