@@ -762,7 +762,6 @@ p {
 #fh5co-people {
   clear: both;
   padding: 7em 0;
-  background: #E8ECF1;
 }
 @media screen and (max-width: 768px) {
   #fh5co-people {
@@ -929,6 +928,7 @@ p {
 
 #fh5co-contact {
   padding: 7em 0;
+  background: #E8ECF1;
 }
 @media screen and (max-width: 768px) {
   #fh5co-contact {
@@ -950,7 +950,6 @@ p {
 
 #fh5co-footer {
   padding: 3em 0;
-  background: #E8ECF1;
   -webkit-box-shadow: inset 0px 10px 21px -15px rgba(0, 0, 0, 0.12);
   -moz-box-shadow: inset 0px 10px 21px -15px rgba(0, 0, 0, 0.12);
   box-shadow: inset 0px 10px 21px -15px rgba(0, 0, 0, 0.12);
