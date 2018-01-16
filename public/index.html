@@ -105,56 +105,91 @@
   
   <div class="container">
     <div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-      <h2>软件部分</h2>
-      <p>运行环境：MAC OS系统 Xcode+OpenCV</p>
+      <h2>小组成员</h2>
+      <p>从左至右依次为李雪嫣，李沐晗，刘悦，孙晨鸽</p>
     </div>
     
     
     <div class="col-md-4">
-      <div class="service">
-	<div class="icon"><i class=icon-feed></i></div>
-	<h3>蓝牙串口通信</h3>
-	<p>参考2015-12B02小组的蓝牙串口代码，经过针对本组小车和计算机进行的细节改动，包装成go(), stop(), turnleft(), turnright()函数，将指令传输给小车。</p>
+      <div class="person">
+	<img src="http://35.194.229.104/" alt="" class="img-responsive">
+	<h3>李雪嫣</h3>
+	<h4>组长  硬件制作</h4>
+	<p>作为组长，我负责团队中的任务分配与硬件制作部分。
+		<br>这个课程项目所设计的知识，如opencv和单片机，对于我们四个人来说基本都是没有接触过的，这让分工出现困难。最后我们决定由两位队员负责软件部分，两位队员负责硬件部分。
+		<br>我们的蓝牙连接部分比较顺利，主要的问题出在计算机对小车位置的判断与小车运行上。
+		<br>由于计算机对于颜色判断上会受到光线之类因素的影响，与肉眼所见到的颜色并不相同，这就导致计算机无法识别小车上的色块。我们多次改变计算机内置的颜色还是无法识别后，我们选择寻找计算机识别度最高的物体颜色，再更改色块，这样计算机对小车的识别就非常稳定。
+		<br>而小车运行上的问题在于其左右轮接收相同信号时的转速不同，导致小车前进路线有偏移，这就需要我们不断调试，找到能让两个轮子转速相同的信号。
+		<br>通过这样对一个个问题的出现、不断尝试再到解决，我们感受到了团队合作与分工的重要性，也学会了从各种不同的角度解决问题。
+		<br>感谢队友们一个学期以来的合作与努力，也感谢工科创课程老师的帮助，让我们这一次圆满完成了课程项目的目标。期待下次能再与这一群伙伴共同参与其他的科创项目。
+	</p>
+	<ul class="social">
+	  
+	</ul>
       </div>
     </div>
     
     <div class="col-md-4">
-      <div class="service">
-	<div class="icon"><i class=icon-eye></i></div>
-	<h3>图像获取</h3>
-	<p>使用计算机内置摄像头，调用cvCreateCameraCapture()获取图像，绘制窗口的部分包装成image.h 和image.cpp</p>
+      <div class="person">
+	<h3>Serial.begin()</h3>
+	<h4></h4>
+	<p>打开串口，设置数据传输速率</p>
+	<ul class="social">
+	  
+	  
+	  
+	  
+	  
+	  
+	</ul>
       </div>
     </div>
     
     <div class="col-md-4">
-      <div class="service">
-	<div class="icon"><i class=icon-layers></i></div>
-	<h3>图像处理：透视变换</h3>
-	<p>手动选择窗口图像的四个角，主要调用了cvGetPerspectiveTransform()和cvWarpPerspective()， 对图像进行透视变换， 具体实现在perspectiveTransform.h perspectiveTransform.cpp</p>
+      <div class="person">
+	<h3>Serial.available()</h3>
+	<h4></h4>
+	<p>判断是否是否接收到消息</p>
+	<ul class="social">
+	  
+	  
+	  
+	  
+	  
+	  
+	</ul>
       </div>
     </div>
     
     <div class="col-md-4">
-      <div class="service">
-	<div class="icon"><i class=icon-frame></i></div>
-	<h3>图像处理：二值化</h3>
-	<p>利用opencv内置cvThreshold()，将数值小于设定阈值的点设置成0，其余设置为255，使透视变换后的图像变为黑白两种颜色，具体实现在binarization.h binarization.cpp</p>
+      <div class="person">
+	<h3>Serial.read()</h3>
+	<h4></h4>
+	<p>从串口接收信息并返回</p>
+	<ul class="social">
+	  
+	  
+	  
+	  
+	  
+	  
+	</ul>
       </div>
     </div>
     
     <div class="col-md-4">
-      <div class="service">
-	<div class="icon"><i class=icon-target></i></div>
-	<h3>图像处理：细化</h3>
-	<p>通过迭代的方式，每次迭代将图像减少一最外层的一个像素点，并保持连通性，对二值化后的图像进行细化，再对细化结果进行判断，将距离较近的直线合并成一条直线（去掉误差产生的多余直线），具体实现在hough.h hough.cpp</p>
-      </div>
-    </div>
-    
-    <div class="col-md-4">
-      <div class="service">
-	<div class="icon"><i class=icon-cursor></i></div>
-	<h3>小车追踪与控制</h3>
-	<p>车头车尾分别用橙色和绿色两个色块，用camsift算法找到它们的位置，车头车尾的连线为小车矢量，路径转折点间的连线为路径矢量，通过这两个矢量的夹角，计算给小车下达的指令，通过tracking.h tracking.cpp 和controlling.h controlling.cpp实现</p>
+      <div class="person">
+	<h3>forward(), turnleft(), turnright(), _stop()</h3>
+	<h4></h4>
+	<p>向引脚输出信号，分别控制小车前进、左转、右转、停止</p>
+	<ul class="social">
+	  
+	  
+	  
+	  
+	  
+	  
+	</ul>
       </div>
     </div>
     
